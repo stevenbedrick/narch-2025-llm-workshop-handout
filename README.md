@@ -44,6 +44,7 @@ They are in no particular order!
 
 ### Some Recent Non-Book Writing
 
+- Dan McQuillan, ["The Role of the University is to Resist AI"](https://danmcquillan.org/cpct_seminar.html). Posted June 2025.
 - Ivy Grey, ["Why You’re Thinking About “Reasoning” All Wrong"](https://www.wordrake.com/blog/youre-thinking-about-reasoning-wrong). Posted May 2025.
 - Klaudia Jaźwińska and Aisvarya Chandrasekar, ["AI Search Has A Citation Problem"](https://www.cjr.org/tow_center/we-compared-eight-ai-search-engines-theyre-all-bad-at-citing-news.php). Posted March 2025.
 - Temese Szalai, ["Can — and Should — We Trust Large Language Models for Health Literacy?"](https://www.healthliteracysolutions.org/blogs/iha-staff1/2023/11/27/can-and-should-we-trust-large-language-models-for). Posted November 2023.
