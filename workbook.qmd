@@ -27,3 +27,27 @@ glimpse(lit_review_df)
 
 # Inclusion/Exclusion
 
+Here's a scaffold of a function for you to start with; edit as needed!
+
+Also, remember: you can work on a subset of the data if it being too cumbersome to process the entire dataset!
+
+```{r}
+is_in_scope <- function(some_abstract) {
+  c <- chat_openai(model = "gpt-4.1-nano",
+                   params=params(seed=42),
+                   system_prompt="INSERT SYSTEM PROMPT HERE"
+        )
+  
+  c$chat(some_abstract, echo=FALSE) # no need to print, we're in a function
+}
+```
+
+# Data Abstraction, Part 1
+
+Pick one of the following items to try and abstract from the articles in our study (or make up your own):
+
+- Geography: where did the study take place?
+- Study population: who were the participants included in the study?
+- Study design: what was the study's experimental design (e.g. an RCT, a retrospective analysis, etc.)
+
+# Data Abstraction, Part 2 (Stretch Goal)
