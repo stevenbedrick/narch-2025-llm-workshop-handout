@@ -10,13 +10,22 @@ library(readxl)
 library(ellmer)
 ```
 
+# Before you begin
+
+Make sure that you have your `.Renviron` file set up [as described in the walkthrough](https://dmice.ohsu.edu/bedricks/courses/narch_llm_summer_2025/01_first_steps.html#first-steps)!
+
 # Experimenting with `ellmer`
 
 ```{r}
 first_chat <- chat_openai(model = "gpt-4.1-nano")
 ```
 
-Now you take over!
+Now you take over! Try running the following snippet:
+
+```{r}
+first_chat$chat("What is the capital of Wales?")
+```
+
 
 # Loading the lit review data
 
@@ -27,7 +36,7 @@ glimpse(lit_review_df)
 
 # Inclusion/Exclusion
 
-Here's a scaffold of a function for you to start with; edit as needed!
+Here's a scaffold of a function for you to start with; edit it as needed!
 
 Also, remember: you can work on a subset of the data if it being too cumbersome to process the entire dataset!
 
@@ -51,3 +60,31 @@ Pick one of the following items to try and abstract from the articles in our stu
 - Study design: what was the study's experimental design (e.g. an RCT, a retrospective analysis, etc.)
 
 # Data Abstraction, Part 2 (Stretch Goal)
+
+Here is a starting point for a structured data definition for our abstraction project:
+
+```{r}
+abstracted_record_type <- type_object(
+  "Data extracted from a published abstract of a clinical trial",
+   geography = type_string("The geographic location in which the study took place."),
+  study_design = type_string("The study design described by this paper")
+)
+```
+
+As we saw in the walkthrough, this is resulting in imprecise extraction of the geographic location of each study when we run it on our data:
+
+```{r}
+
+c <- chat_openai(model = "gpt-4.1-nano", 
+                 system_prompt="Extract the specified data elements from an article abstract.",
+                 params=params(seed=42)
+     )
+
+first_10_abstracts <- lit_review_df %>% sample_n(5) %>% select(abstract) %>% pull %>% as.list
+parallel_chat_structured(c, first_10_abstracts, type=abstracted_record_type)
+
+```
+
+
+Your challenge, should you choose to accept it: rewrite this prompt to produce better output. 
+The [walkthrough document](https://dmice.ohsu.edu/bedricks/courses/narch_llm_summer_2025/04_stretch_goal_structured_output.html#iterating-and-improving) has some suggestions of things to try, if you get stuck!
