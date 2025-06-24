@@ -1,0 +1,29 @@
+---
+title: "workbook"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(glue)
+library(readxl)
+library(ellmer)
+```
+
+# Experimenting with `ellmer`
+
+```{r}
+first_chat <- chat_openai(model = "gpt-4.1-nano")
+```
+
+Now you take over!
+
+# Loading the lit review data
+
+```{r}
+lit_review_df <- read_xlsx("lit_review.xlsx")
+glimpse(lit_review_df)
+```
+
+# Inclusion/Exclusion
+
